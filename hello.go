@@ -5,6 +5,17 @@ import (
 	"fmt"
 )
 
+type Cliente struct {
+	nome  string
+	email string
+	cpf   int
+}
+
+type ClienteInternacional struct {
+	Cliente
+	pais string
+}
+
 type Carro struct {
 	Nome string
 }
@@ -15,6 +26,17 @@ func (c *Carro) andou() {
 }
 
 func main() {
+
+	cliente := ClienteInternacional{
+		Cliente: Cliente{
+			nome:  "Danilo",
+			email: "d@d.com.br",
+			cpf:   123456,
+		},
+		pais: "Brazil",
+	}
+
+	fmt.Printf(" Nome: %s, Email: %s, CPF: %d, País: %s ", cliente.nome, cliente.email, cliente.cpf, cliente.pais)
 
 	carro := Carro{
 		Nome: "BMW",
