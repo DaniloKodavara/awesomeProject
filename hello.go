@@ -3,41 +3,65 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
-	"net/http"
 )
+
+type Carro struct {
+	Nome string
+}
+
+func (c *Carro) andou() {
+	c.Nome = "Fusca"
+	fmt.Println(c.Nome, "andou")
+}
 
 func main() {
 
-	resultado := func(x ...int) func() int {
-		res := 0
+	carro := Carro{
+		Nome: "BMW",
+	}
 
-		for _, v := range x {
-			res += v
+	carro.andou()
+	fmt.Println(carro.Nome)
+
+	/*	carro := Carro{
+			Nome: "BMW",
 		}
-		return func() int {
-			return res * res
+
+		carro.andar()
+
+		resultado := func(x ...int) func() int {
+			res := 0
+
+			for _, v := range x {
+				res += v
+			}
+			return func() int {
+				return res * res
+			}
 		}
-	}
 
-	res, err := http.Get("http://google.com.br")
-	if err != nil {
-		log.Println(err.Error())
-	} else {
-		fmt.Println(res.Header)
-	}
+		res, err := http.Get("http://google.com.br")
+		if err != nil {
+			log.Println(err.Error())
+		} else {
+			fmt.Println(res.Header)
+		}
 
-	resSoma, errSoma := soma(10, 10)
-	if errSoma != nil {
-		log.Println(errSoma.Error())
-	} else {
-		fmt.Println(resSoma)
-	}
+		resSoma, errSoma := soma(10, 10)
+		if errSoma != nil {
+			log.Println(errSoma.Error())
+		} else {
+			fmt.Println(resSoma)
+		}
 
-	fmt.Println(somaComResultado(10, 10))
+		fmt.Println(somaComResultado(10, 10))
 
-	fmt.Println(resultado(3, 5, 8, 13, 21)())
+		fmt.Println(resultado(3, 5, 8, 13, 21)())*/
 
+}
+
+func abc(a *int) {
+	*a = 200
 }
 
 func soma(x int, y int) (int, error) {
