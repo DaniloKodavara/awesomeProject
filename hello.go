@@ -25,6 +25,11 @@ func (c *Carro) andou() {
 	fmt.Println(c.Nome, "andou")
 }
 
+func exibe(c ClienteInternacional) {
+	fmt.Printf(" Nome: %s, Email: %s, CPF: %d, País: %s ", c.nome, c.email, c.cpf, c.pais)
+
+}
+
 func main() {
 
 	cliente := ClienteInternacional{
@@ -36,7 +41,7 @@ func main() {
 		pais: "Brazil",
 	}
 
-	fmt.Printf(" Nome: %s, Email: %s, CPF: %d, País: %s ", cliente.nome, cliente.email, cliente.cpf, cliente.pais)
+	exibe(cliente)
 
 	carro := Carro{
 		Nome: "BMW",
